@@ -35,6 +35,8 @@ URxvt.cursorBlink:                true
 URxvt.cursorUnderline:            true
 URxvt.scrollBar:                  false
 URxvt.scrollBar_right:            false
+URxvt.transparent:                true
+URxvt.shading:                    10
 
 !! Copy Paste & Other Extensions
 URxvt.perl-ext-common:            default,clipboard,url-select,keyboard-select
