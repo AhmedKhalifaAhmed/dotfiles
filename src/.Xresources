@@ -1,0 +1,59 @@
+!! Colorscheme
+*.foreground:                     #93a1a1 // special 1
+*.background:                     #141c21 // special 2
+*.cursorColor:                    #afbfbf // special 3
+*.color0:                         #263640 // Black 1
+*.color8:                         #4a697d // Black 2
+*.color1:                         #d12f2c // Red 1
+*.color9:                         #fa3935 // Red 2
+*.color2:                         #819400 // Green 1
+*.color10:                        #a4bd00 // Green 2
+*.color3:                         #b08500 // Yellow 1
+*.color11:                        #d9a400 // Yellow 2
+*.color4:                         #2587cc // Blue 1
+*.color12:                        #2ca2f5 // Blue 2
+*.color5:                         #696ebf // Magenta 1
+*.color13:                        #8086e8 // Magenta 2
+*.color6:                         #289c93 // Cyan 1
+*.color14:                        #33c5ba // Cyan 2
+*.color7:                         #bfbaac // White 1
+*.color15:                        #fdf6e3 // White 2
+
+!! Font settings
+Xft.antialiasing:                 true
+Xft.dpi:                          96
+Xft.rgba:                         true
+Xft.hinting:                      true
+Xft.hintstyle:                    hintful
+
+!! URxvt Appearance
+URxvt.font:                       xft:bitstream vera sans mono:size=10:antialias=true
+URxvt.boldFont:                   xft:bitstream vera sans mono:bold:size=10:antialias=true
+URxvt.italicFont:                 xft:bitstream vera sans mono:italic:size=10:antialias=true
+URxvt.boldItalicFont:             xft:bitstream vera sans mono:bolditalic:size=10:antialias=true
+URxvt.cursorBlink:                true
+URxvt.cursorUnderline:            true
+URxvt.scrollBar:                  false
+URxvt.scrollBar_right:            false
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common:            default,clipboard,url-select,keyboard-select
+URxvt.copyCommand:                xclip -i -selection clipboard
+URxvt.pasteCommand:               xclip -o -selection clipboard
+URxvt.keysym.M-c:                 perl:clipboard:copy
+URxvt.keysym.M-v:                 perl:clipboard:paste
+URxvt.keysym.M-C-v:               perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape:            perl:keyboard-select:activate
+URxvt.keysym.M-s:                 perl:keyboard-select:search
+URxvt.keysym.M-u:                 perl:url-select:select_next
+URxvt.urlLauncher:                firefox
+URxvt.underlineURLs:              true
+URxvt.urlButton:                  1
+
+!! Keybinds for font size
+URxvt.keysym.M-Up:                font-size:increase
+URxvt.keysym.M-Down:              font-size:decrease
+URxvt.keysym.M-Right:             font-size:incglobal
+URxvt.keysym.M-Left:              font-size:decglobal
+URxvt.keysym.M-equal:             font-size:reset
+URxvt.keysym.M-slash:             font-size:show

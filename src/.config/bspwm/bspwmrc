@@ -1,0 +1,46 @@
+#!/bin/fish
+
+# If refreshing bspwm, remove all previous rules to prevent doubling up.
+bspc rule -r "*"
+
+# Keyboard shortcuts
+# Set default sxhkd shell
+set -g -x SXHKD_SHELL '/usr/bin/sh'
+
+# Applications and daemons
+sxhkd &
+xcompmgr -c &
+
+
+# Dual monitor config
+if [ (count (xrandr -q | grep -w "HDMI-0 connected"))  -ge 1 ]
+  xrandr --output HDMI-0 --primary --mode 1920x1080 --rotate normal --left-of DP-0
+  # Setting workspaces
+  bspc monitor DP-0   -d VI VII VIII IX X # Laptop screen takes 6-10
+  bspc monitor HDMI-0 -d I II III IV V    # Monitor takes 1-5
+else
+  # Setting workspaces
+  bspc monitor -d I II III IV V VI VII VIII IX X
+end
+
+# Load background and daemons
+# Load wallpaper
+if $WALLPAPER
+  feh --bg-scale $WALLPAPER
+else
+  feh --bg-scale ~/Pictures/wallpapers/wallpaper2.jpg
+end
+
+# Borders and gaps
+bspc config border_width  2
+bspc config window_gap    2
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      false
+
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floating
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
